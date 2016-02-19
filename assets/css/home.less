@@ -1,0 +1,174 @@
+@import "components/common.less";
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  layout start                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#page,
+#content{
+    height: 100%;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  layout end                                */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  hero section start                        */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#hero-background-holder{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    .part{
+        width: 20%;
+        height: 100%;
+        position: absolute;
+        transition: all .5s ease;
+        will-change: transform;
+        background: url("@{images}industrial.jpg") no-repeat 0 0 fixed;
+        background-size: cover;
+        transform: translateY(-100%);
+        overflow: hidden;
+        &:nth-child(1){ left: 0%; }
+        &:nth-child(2){ left: 20%; }
+        &:nth-child(3){ left: 40%; }
+        &:nth-child(4){ left: 60%; }
+        &:nth-child(5){ left: 80%; }
+    }
+}
+
+.__loaded #hero-background-holder{
+    .part{
+        &:nth-child(1){ transition: all .6s @easing .6s; }
+        &:nth-child(2){ transition: all .6s @easing .7s; }
+        &:nth-child(3){ transition: all .6s @easing .8s; }
+        &:nth-child(4){ transition: all .6s @easing .9s; }
+        &:nth-child(5){ transition: all .6s @easing 1s; }
+        transform: translateY(0%);
+    }
+}
+
+.hero-holder{
+    & > .inner{
+        max-width: 100%;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        z-index: 20;
+        backface-visibility: hidden;
+        h1,
+        .upper-title,
+        .lower-title{
+            text-align: center;
+            color: @white;
+        }
+        .upper-title,
+        .lower-title{
+            opacity: 0;
+            transition: all .6s @easing 3.6s;
+        }
+        h1{
+            letter-spacing: -.25em;
+            span{
+                display: inline-block;
+                vertical-align: middle;
+                font-family: inherit;
+                font-size: inherit;
+                color: inherit;
+                position: relative;
+                opacity: 0;
+                transform: translateY(-100%);
+                &.space{ margin: 0 10px; }
+                &:nth-child(1){ transition: all .6s @easing 1.6s; }
+                &:nth-child(2){ transition: all .6s @easing 1.7s; }
+                &:nth-child(3){ transition: all .6s @easing 1.8s; }
+                &:nth-child(4){ transition: all .6s @easing 1.9s; }
+                &:nth-child(5){ transition: all .6s @easing 2s; }
+                &:nth-child(6){ transition: all .6s @easing 2.1s; }
+                &:nth-child(7){ transition: all .6s @easing 2.2s; }
+                &:nth-child(8){ transition: all .6s @easing 2.3s; }
+                &:nth-child(9){ transition: all .6s @easing 2.4s; }
+                &:nth-child(10){ transition: all .6s @easing 2.5s; }
+                &:nth-child(11){ transition: all .6s @easing 2.6s; }
+                &:nth-child(12){ transition: all .6s @easing 2.7s; }
+                &:nth-child(13){ transition: all .6s @easing 2.8s; }
+                &:nth-child(14){ transition: all .6s @easing 2.9s; }
+                &:nth-child(15){ transition: all .6s @easing 3.0s; }
+            }
+        }
+        .upper-title{
+            display: block;
+            font-size: 1.125em;
+        }
+        .btn{
+            opacity: 0;
+            transform: translateY(-100%);
+            transition: all .6s @easing 4.2s;
+            margin: 80px auto 0;
+        }
+    }
+}
+
+.__loaded .hero-holder{
+    & > .inner{
+        h1{
+            span{
+                opacity: 1;
+                transform: translateY(0%);
+            }
+        }
+        .upper-title,
+        .lower-title{
+            opacity: 1;
+        }
+        .btn{
+            opacity: 1;
+            transform: translateY(0%);
+        }
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  hero section end                          */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  benefits section start                    */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.benefits-holder{
+    overflow: hidden;
+    & > .inner{
+        position: relative;
+        margin: 0 auto;
+        z-index: 20;
+        h2{
+            text-align: center;
+            padding: 80px 0;
+            color: @white;
+        }
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  benefits section end                      */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  benefits section start                    */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.project-types-holder{
+    overflow: hidden;
+    .background-parts-holder{
+        .bg-part{ background: @orange; }
+    }
+    .parallax-holder{
+        left: auto;
+        right: 0;
+        .parallax-letter{
+            color: lighten(@orange, 5%);
+        }
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  benefits section end                      */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

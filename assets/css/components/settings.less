@@ -1,0 +1,83 @@
+@import url(https://fonts.googleapis.com/css?family=Noto+Sans&subset=latin,cyrillic);
+@font-face {
+  font-family: "Ailerons", sans-serif;
+  src: url("@{fonts}ailerons-typeface-webfont.eot");
+  src: url("@{fonts}ailerons-typeface-webfont.eot?#iefix") format('embedded-opentype'),
+       url("@{fonts}ailerons-typeface-webfont.woff2") format('woff2'),
+       url("@{fonts}ailerons-typeface-webfont.woff") format('woff'),
+       url("@{fonts}ailerons-typeface-webfont.ttf") format('truetype'),
+       url("@{fonts}ailerons-typeface-webfont.svg#aileronsregular") format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  system variables start                    */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+@black: #181818;
+@white: #f6f6f6;
+@orange: #da8331;
+
+@images: "../images/";
+@fonts: "../fonts/";
+
+@ailerons: "Ailerons", sans-serif;
+@notoSans: "Noto Sans", sans-serif;
+
+@easing: cubic-bezier(0.76, 0.05, 0.32, 1);
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  system variables end                      */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  mixins start                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  mixins end                                */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  helpers start                             */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.clearfix{
+    &:after{
+        display: block;
+        height: 0;
+        font-size: 0;
+        content: " ";
+        clear: both;
+        visibility: hidden;
+    }
+}
+figure,
+figure > img,
+img{
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.svg-container{
+    height: 0;
+    position: relative;
+    & > svg{
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+.icon{
+    width: 60px;
+    height: 60px;
+    font-size: 3.75em;
+    color: @black;
+    &:before{ vertical-align: top; }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  helpers end                               */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+
+

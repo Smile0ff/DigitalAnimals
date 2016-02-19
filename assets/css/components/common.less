@@ -1,0 +1,410 @@
+@import "reset.less";
+@import "settings.less";
+@import "icons.less";
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  Fonts start                               */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+h1, h2, h3, h4, h5, h6, p, a, time, span{
+    font-family: @notoSans;
+    font-weight: normal;
+    font-style: normal;
+    color: @black;
+}
+h1{
+    font-family: @ailerons;
+    font-size: 7em;
+    color: @white;
+}
+h2{ font-size: 2.5em; }
+h3{ font-size: 1.5em; }
+h4{ font-size: 1.25em; }
+h5{ font-size: 1.125em; }
+
+p, a{ font-size: 1em; }
+a{ text-decoration: none; }
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  Fonts end                                 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  layout start                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#page,
+#content{
+    height: auto;
+    min-height: 100%;
+}
+.outer,
+.inner{
+    width: 100%;
+    overflow: visible;
+}
+.outer{
+    height: 100%;
+    min-height: 100%;
+    background: @white;
+    position: relative;
+}
+.inner{
+    max-width: 1200px;
+    height: auto;
+    margin: 0 auto;
+}
+
+body{
+    overflow: hidden;
+    &.__loaded{ overflow: visible; }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  layout end                                */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  preloader start                           */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#preloader{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    transition: all .6s @easing 0s;
+    background: @white;
+    opacity: 1;
+    visibility: visible;
+    .line{
+        display: block;
+        width: 1px;
+        height: 100%;
+        position: absolute;
+        top: 0%;
+        left: 50%;
+        background: lighten(@black, 20%);
+        transform: translateY(-100%);
+        overflow: hidden;
+        &:nth-child(1){
+            margin-left: -30px;
+            animation: loader 3s @easing 0s infinite;
+        }
+        &:nth-child(2){
+            margin-left: -10px;
+            animation: loader 3s @easing .1s infinite;
+        }
+        &:nth-child(3){
+            margin-left: 10px;
+            animation: loader 3s @easing .2s infinite;
+        }
+        &:nth-child(4){
+            margin-left: 30px;
+            animation: loader 3s @easing .3s infinite;
+        }
+    }
+}
+
+@keyframes loader{
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+}
+
+.__loaded #preloader{
+    opacity: 0;
+    visibility: hidden;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  preloader end                             */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  cross lines start                         */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#cross-lines{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    overflow: hidden;
+    .line{
+        display: block;
+        width: 1px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: lighten(@black, 20%);
+        transform: translateY(-100%);
+        &:nth-child(1){ left: 20%; }
+        &:nth-child(2){ left: 40%; }
+        &:nth-child(3){ left: 60%; }
+        &:nth-child(4){ left: 80%; }
+    }
+}
+.__loaded #cross-lines{
+    .line{
+        &:nth-child(1){ transition: all .6s @easing 0s; }
+        &:nth-child(2){ transition: all .6s @easing .1s; }
+        &:nth-child(3){ transition: all .6s @easing .2s; }
+        &:nth-child(4){ transition: all .6s @easing .3s; }
+        transform: translateY(0%);
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  cross lines end                           */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  scroll down start                         */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#scroll-down{
+    width: 180px;
+    height: 120px;
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    margin-left: -90px;
+    z-index: 20;
+    overflow: hidden;
+    .line-holder{
+        width: 2px;
+        height: 80px;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+        .line{
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: @white;
+            transform: translateY(-100%);
+        }
+    }
+    .text{
+        display: block;
+        margin-top: 20px;
+        text-align: center;
+        line-height: 20px;
+        font-size: .875em;
+        color: @white;
+        opacity: 0;
+        transition: all .6s @easing 4.2s;
+    }
+}
+
+.__loaded #scroll-down{
+    .line-holder{
+        .line{ animation: scrollDown 2s @easing 4.2s infinite; }
+    }
+    .text{ opacity: 1; }
+}
+
+@keyframes scrollDown{
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  scroll down end                           */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  header start  			                  */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#header{
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    overflow: hidden;
+    .logo{
+        width: 50px;
+        height: 80px;
+        margin: 80px 0 0 80px;
+        float: left;
+        position: relative;
+        opacity: 0;
+        transform: translateY(-100%);
+        transition: all .6s @easing 4.2s;
+        overflow: hidden;
+    }
+    .contact-holder{
+        width: 200px;
+        float: right;
+        margin: 80px 80px 0px 80px;
+        .item-holder{
+            text-align: right;
+            a{
+                display: inline-block;
+                vertical-align: top;
+                white-space: -1;
+                margin-left: -4px;
+                position: relative;
+                color: @white;
+                font-size: .875em;
+                opacity: 0;
+                transform: translateY(-100%);
+                transition: all .6s @easing 4.2s;
+            }
+            &:first-child{
+                a{ font-size: 1.925em; }
+            }
+        }
+    }
+}
+.__loaded #header{
+    .logo,
+    .contact-holder .item-holder a{
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  header end                			      */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  btn start                                */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+*[class^="btn"]{
+    display: block;
+    width: 200px;
+    height: 50px;
+    position: relative;
+    overflow: hidden;
+    .substrate,
+    & > a{
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+    }
+    .substrate{
+        background: @white;
+        transform-origin: 0% 0%;
+        animation: btnHover .6s @easing 0s 1 forwards;
+        content: "";
+    }
+    & > a{
+        z-index: 10;
+        border: 2px solid @white;
+        box-sizing: border-box;
+        color: @white;
+        text-align: center;
+        line-height: 46px;
+        transition: all .6s @easing 0s;
+    }
+    &:hover{
+        .substrate{
+            transition: none;
+            animation: btnHoverActive .6s @easing 0s 1 forwards;
+        }
+        a{ color: @orange; }
+    }
+}
+@keyframes btnHover{
+    0% { transform: translateY(0%); }
+    100% { transform: translateY(100%); }
+}
+@keyframes btnHoverActive{
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(0%); }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  btn end                                   */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  slide panels start                        */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.background-parts-holder{
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    .bg-part{
+        width: 20%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateY(-100%);
+        background: @black;
+        overflow: hidden;
+        &:nth-child(1){
+            left: 0;
+            transition: all .6s @easing 0s;
+        }
+        &:nth-child(2){
+            left: 20%;
+            transition: all .6s @easing .1s;
+        }
+        &:nth-child(3){
+            left: 40%;
+            transition: all .6s @easing .2s;
+        }
+        &:nth-child(4){
+            left: 60%;
+            transition: all .6s @easing .3s;
+        }
+        &:nth-child(5){
+            left: 80%;
+            transition: all .6s @easing .4s;
+        }
+    }
+}
+.outer.scroll-panel.active{
+    .background-parts-holder{
+        .bg-part{
+            &:nth-child(1){ transform: translateY(-40%); }
+            &:nth-child(2){ transform: translateY(-60%); }
+            &:nth-child(3){ transform: translateY(-20%); }
+            &:nth-child(4){ transform: translateY(0%); }
+            &:nth-child(5){ transform: translateY(-80%); }
+        }
+        &.reverse{
+            .bg-part{
+                &:nth-child(1){ transform: translateY(-80%); }
+                &:nth-child(2){ transform: translateY(0%); }
+                &:nth-child(3){ transform: translateY(-20%); }
+                &:nth-child(4){ transform: translateY(-60%); }
+                &:nth-child(5){ transform: translateY(-40%); }
+            }
+        }
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  slide panels end                          */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  parallax letter start                     */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.parallax-holder{
+    display: block;
+    width: 20%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    text-align: center;
+    overflow: hidden;
+    & > .parallax-letter{
+        display: inline-block;
+        vertical-align: top;
+        font-family: @ailerons;
+        font-size: 20em;
+        color: lighten(@black, 5%);
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  parallax letter end                       */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
