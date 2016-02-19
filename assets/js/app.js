@@ -8,3 +8,5 @@ $(() => {
     new ScrollController();
     new Parallaxify();
 });
+
+$(window).scrollTop(0);
