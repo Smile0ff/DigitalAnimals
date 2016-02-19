@@ -1,5 +1,5 @@
 System.config({
-  baseURL: "/digital-animals/",
+  baseURL: "/",
   defaultJSExtensions: true,
   transpiler: "babel",
   babelOptions: {
