@@ -4,8 +4,8 @@
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  Fonts start                               */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-h1, h2, h3, h4, h5, h6, p, a, time, span{
-    font-family: @notoSans;
+h1, h2, h3, h4, h5, h6, p, a, time, span, small{
+    font-family: @ubuntu;
     font-weight: normal;
     font-style: normal;
     color: @black;
@@ -15,8 +15,14 @@ h1{
     font-size: 7em;
     color: @white;
 }
-h2{ font-size: 2.5em; }
-h3{ font-size: 1.5em; }
+h2{
+    font-size: 2.5em;
+    font-weight: 500;
+}
+h3{
+    font-size: 1.5em;
+    font-weight: 500;
+}
 h4{ font-size: 1.25em; }
 h5{ font-size: 1.125em; }
 
@@ -224,36 +230,12 @@ body{
     .logo{
         width: 50px;
         height: 80px;
-        margin: 80px 0 0 80px;
-        float: left;
+        margin: 80px auto;
         position: relative;
         opacity: 0;
         transform: translateY(-100%);
         transition: all .6s @easing 4.2s;
         overflow: hidden;
-    }
-    .contact-holder{
-        width: 200px;
-        float: right;
-        margin: 80px 80px 0px 80px;
-        .item-holder{
-            text-align: right;
-            a{
-                display: inline-block;
-                vertical-align: top;
-                white-space: -1;
-                margin-left: -4px;
-                position: relative;
-                color: @white;
-                font-size: .875em;
-                opacity: 0;
-                transform: translateY(-100%);
-                transition: all .6s @easing 4.2s;
-            }
-            &:first-child{
-                a{ font-size: 1.925em; }
-            }
-        }
     }
 }
 .__loaded #header{
@@ -297,6 +279,7 @@ body{
         border: 2px solid @white;
         box-sizing: border-box;
         color: @white;
+        font-weight: 500;
         text-align: center;
         line-height: 46px;
         transition: all .6s @easing 0s;
@@ -319,6 +302,22 @@ body{
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  btn end                                   */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  sprtr start                               */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+*[class^="sprtr"]{
+    display: block;
+    width: 120px;
+    height: 2px;
+    position: relative;
+    z-index: 5;
+    background: @orange;
+    overflow: hidden;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  sprtr end                                 */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -362,7 +361,8 @@ body{
         }
     }
 }
-.outer.scroll-panel.active{
+
+.outer.scroll-holder.active{
     .background-parts-holder{
         .bg-part{
             &:nth-child(1){ transform: translateY(-40%); }
@@ -393,45 +393,37 @@ body{
     display: block;
     width: 100%;
     height: auto;
-    position: absolute;
-    top: 0%;
-    left: 0%;
+    position: relative;
     z-index: 5;
-    text-align: center;
     overflow: hidden;
-}
-
-.benefits-holder,
-.project-types-holder{
-    .parallax-holder.parallax-letter{
-        top: 50%;
-        margin-top: -10vw;
-        text-align: left;
-        span{
-            display: inline-block;
-            font-family: @ailerons;
-            font-size: 36vw;
-            text-align: center;
-            color: lighten(@black, 80%);
-        }
-    }
-    .parallax-holder.parallax-icon{
-       top: 0;
-       left: auto;
-       right: -40px;
-       margin: 0;
-    }
-}
-.project-types-holder{
-    .parallax-holder.parallax-letter{
-        top: 0;
-        left: auto;
-        right: 0;
-        margin: 0;
-        text-align: right;
-        span{ color: lighten(@orange, 30%); }
-    }
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  parallax end                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  footer start                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#footer{
+    width: 100%;
+    height: auto;
+    background: @orange;
+    overflow: hidden;
+    .logo{
+        width: 40px;
+        height: auto;
+        margin: 20px auto 10px;
+        overflow: hidden;
+    }
+    small{
+        display: block;
+        font-size: .875em;
+        color: @white;
+        margin-bottom: 20px;
+        text-align: center;
+        overflow: hidden;
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  footer end                                */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

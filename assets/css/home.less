@@ -6,6 +6,103 @@
 #content{
     height: 100%;
 }
+
+.parallax-holder{
+    &.parallax-letter{
+        display: block;
+        width: 100%;
+        height: 36vw;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        margin-top: -18vw;
+        font-family: @ailerons;
+        font-size: 36vw;
+        text-align: left;
+        color: lighten(@black, 80%);
+        &.right{
+            text-align: right;
+            color: lighten(@orange, 30%);
+        }
+        &.top{
+            top: 0;
+            margin-top: 0;
+        }
+    }
+    &.parallax-icon{
+        display: block;
+        width: 80px;
+        height: 80px;
+        position: absolute;
+        top: 0;
+        right: -40px;
+        background: @black;
+        border: 1px solid @white;
+        box-sizing: border-box;
+        font-size: 3em;
+        color: @white;
+        text-align: center;
+        &:before{
+            display: inline-block;
+            vertical-align: top;
+            line-height: 80px;
+        }
+    }
+}
+
+.inner-headline{
+    font-size: 3em;
+    text-align: left;
+    color: @white;
+    overflow: hidden;
+    &:before{
+        display: inline-block;
+        vertical-align: middle;
+        width: 120px;
+        height: 2px;
+        margin: 0 20px;
+        content: "";
+        position: relative;
+        background: @white;
+    }
+    &.black{
+        color: @black;
+        &:before{ background: @black; }
+    }
+}
+
+.features-holder,
+.price-holder{
+    & > .inner{
+        .sprtr{
+            height: 80px;
+            margin: 0 auto 80px;
+            background: transparent;
+            &:before{
+                display: block;
+                width: 100%;
+                height: 2px;
+                position: absolute;
+                top: 50%;
+                left: 0;
+                margin-top: -1px;
+                content: "";
+                transform: translateX(-100%) rotate(0deg);
+                background: @black;
+            }
+        }
+    }
+    &.active{
+        & > .inner{
+            .sprtr:before{ animation: sprtrAnim 1.2s @easing .6s 1 forwards; }
+        }
+    }
+}
+@keyframes sprtrAnim{
+    0% { transform: translateX(-100%) rotate(0deg); }
+    50% { transform: translateX(0%) rotate(0deg); }
+    100% { transform: translateX(0%) rotate(-35deg); }
+}
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  layout end                                */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -81,7 +178,7 @@
                 position: relative;
                 opacity: 0;
                 transform: translateY(-100%);
-                &.space{ margin: 0 10px; }
+                &.space{ margin: 0 5px; }
                 &:nth-child(1){ transition: all .6s @easing 1.6s; }
                 &:nth-child(2){ transition: all .6s @easing 1.7s; }
                 &:nth-child(3){ transition: all .6s @easing 1.8s; }
@@ -139,44 +236,52 @@
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .benefits-holder{
     & > .inner{
-        width: 60%;
+        max-width: 60%;
         position: relative;
         margin: 0px auto;
-        padding: 80px 20px;
+        padding: 160px 20px 80px;
         box-sizing: border-box;
         z-index: 20;
-        h2{
-            text-align: center;
-            color: @white;
-        }
+        h2.inner-headline:before{ margin: 0 20px 0 0; }
         .benefits-item{
             width: 100%;
             height: auto;
-            margin-top: 80px;
-            background: @orange;
+            margin-top: 160px;
+            background: transparent;
             position: relative;
-            & > .icon-holder{
+            .benefit-bg{
                 display: block;
-                width: 80px;
-                height: 80px;
-                background: @black;
-                text-align: center;
-                border: 1px solid @white;
-                box-sizing: border-box;
-                .icon{
-                    font-size: 3em;
-                    color: @white;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background: @orange;
+                transform: skewX(-15deg) scaleY(0);
+                transition: all .6s @easing 0s;
+                &.upper{
+                    top: -20px;
+                    left: 20px;
+                    background: lighten(@black, 80%);
+                    transition: all .6s @easing .6s;
                 }
             }
             & > .item{
-                h3{ padding: 40px 20px 0; }
-                p{ padding: 20px 20px 40px; }
+                position: relative;
+                z-index: 20;
+                h3, p{
+                    opacity: 0;
+                    transition: all .6s @easing 1.2s;
+                }
+                h3{ padding: 20px 20px 0 60px; }
+                p{ padding: 20px 20px 60px 40px; }
             }
-        }
-        .features-holder{
-            width: 100%;
-            height: auto;
-            margin-top: 80px;
+            &.active{
+                .benefit-bg{ transform: skewX(-15deg) scaleY(1); }
+                & > .item{
+                    h3, p{ opacity: 1; }
+                }
+            }
         }
     }
 }
@@ -185,13 +290,348 @@
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-/*  benefits section start                    */
+/*  features section start                    */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.project-types-holder{
-    .background-parts-holder{
-        .bg-part{ background: @orange; }
+.features-holder{
+    & > .inner{
+        max-width: 100%;
+        padding: 160px 0 80px;
+        position: relative;
+        z-index: 20;
+        & > .item{
+            width: 40%;
+            height: auto;
+            margin: 80px 0 0 10%;
+            position: relative;
+            & > figure{
+                position: relative;
+                overflow: visible;
+                &:before{
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: -20px;
+                    left: 20px;
+                    content: "";
+                    background: transparent;
+                    border: 2px solid @black;
+                    box-sizing: border-box;
+                }
+            }
+            .info-holder{
+                width: 100%;
+                height: auto;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                z-index: 10;
+                padding: 40px;
+                box-sizing: border-box;
+                overflow: visible;
+                & > .info-bg{
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    content: "";
+                    border: 2px solid @black;
+                    transform: skewX(-15deg);
+                    box-sizing: border-box;
+                }
+                &:before{
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 20px;
+                    left: -20px;
+                    content: "";
+                    background: @white;
+                    transform: skewX(-15deg);
+                }
+                .info{
+                    width: 100%;
+                    height: auto;
+                    position: relative;
+                    z-index: 20;
+                    h3{ padding: 0 20px 20px; }
+                }   
+            }
+            &.reverse{
+                margin: 80px 0 0 50%;
+                & > figure:before{ top: 20px; }
+                .info-holder{
+                    left: -50%;
+                    &:before{
+                        left: 20px;
+                    }
+                }
+            }
+        }
     }
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-/*  benefits section end                      */
+/*  features section end                      */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  project sequence section start            */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.project-sequence-holder{
+    .background-parts-holder{
+        .bg-part{ background: @orange; }
+    }
+    & > .parallax-icon{
+        width: 20%;
+        height: 160px;
+        top: auto;
+        right: 0;
+        bottom: 0;
+        margin-top: -160px;
+        border: none;
+        font-size: 10em;
+        color: lighten(@orange, 30%);
+        background: transparent;
+        &:before{
+            vertical-align: top;
+            line-height: 160px;
+        }
+    }
+    & > .inner{
+        max-width: 60%;
+        margin: 0 auto;
+        position: relative;
+        z-index: 20;
+        padding: 160px 20px 80px;
+        box-sizing: border-box;
+        & > p{
+            position: relative;
+            padding: 20px 0 0;
+            transition: all .6s @easing 0s;
+            opacity: 0;
+            transform: translateY(100%);
+        }
+        & > .item{
+            width: 100%;
+            height: auto;
+            margin-top: 120px;
+            position: relative;
+            &:before,
+            &:after{
+                display: block;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                content: "";
+                transform: skewX(0deg) scaleY(0);
+            }
+            &:before{
+                background: @black;
+                transition: all .6s @easing 0s;
+            }
+            &:after{
+                top: 20px;
+                left: 20px;
+                background: lighten(@orange, 30%);
+                transition: all .6s @easing .6s;
+            }
+            h3{
+                position: relative;
+                z-index: 10;
+                color: @black;
+                opacity: 0;
+                font-weight: 400;
+                padding: 60px 80px 20px 40px;
+                transition: all .6s @easing 1.2s;
+            }
+            &.active{
+                &:before,
+                &:after{
+                    transform: skewX(-15deg) scaleY(1);
+                }
+                h3{ opacity: 1; }
+            }
+        }
+        .project-ready{
+            display: block;
+            font-size: 2.5em;
+            font-weight: 500;
+            text-align: right;
+            padding: 120px 0 0;
+            &:before{
+                display: inline-block;
+                width: 120px;
+                vertical-align: middle;
+                height: 2px;
+                margin-right: 20px;
+                background: @black;
+                content: "";
+            }
+        }
+    }
+    &.active{
+        & > .inner{
+            & > p{
+                opacity: 1;
+                transform: translateY(0%);
+            }
+        }
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  project sequence section end              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  price section start                       */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.price-holder{
+    .parallax-logo{
+        width: 10%;
+        height: auto;
+        position: absolute;
+        top: 30%;
+        left: 5%;
+        overflow: hidden;
+    }
+    & > .inner{
+        max-width: 100%;
+        padding: 160px 0 80px;
+        position: relative;
+        z-index: 20;
+        .item-holder{
+            width: 40%;
+            height: auto;
+            position: relative;
+            margin: 120px 0 0 10%;
+            &:before,
+            &:after{
+                display: block;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                content: "";
+                transform: skewX(0deg) scaleY(0);
+            }
+            &:before{
+                transition: all .6s @easing 0s;
+                background: @black;
+            }
+            &:after{
+                top: 20px;
+                left: 20px;
+                transition: all .6s @easing .6s;
+                border: 2px solid @orange;
+                box-sizing: border-box;
+            }
+            .item{
+                width: 100%;
+                position: relative;
+                z-index: 20;
+                p{
+                    color: @white;
+                    padding: 60px 40px 40px 60px;
+                    opacity: 0;
+                    transition: all .6s @easing 1.2s;
+                    span{
+                        color: inherit;
+                        font-weight: bold;
+                        font-size: 1.5em;
+                        &:last-child{ color: @orange; }
+                    }
+                }
+            }
+            &.reverse{
+                margin: 120px 0 0 50%;
+                &:after{ left: -20px; }
+            }
+            &.active{
+                &:before,
+                &:after{
+                    transform: skewX(-15deg) scaleY(1);
+                }
+                .item{
+                    p{ opacity: 1; }
+                }
+            }
+        }
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  price section end                         */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  contact section end                       */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.contact-holder{
+    min-height: auto;
+    background: @black;
+    & > .background-parts-holder{
+        .bg-part{ background: @white; }
+    }
+    & > .inner{
+        max-width: 100%;
+        position: relative;
+        z-index: 20;
+        margin: 0 auto;
+        padding: 160px 0 80px;
+        h2.inner-headline{
+            color: @orange;
+            padding-left: 20%;
+            &:before{ background: @orange; }
+        }
+        .item-holder{
+            display: block;
+            width: 40%;
+            height: auto;
+            margin: 120px 0 0 10%;
+            position: relative;
+            &:before{
+                display: block;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                content: "";
+                border: 2px solid @white;
+                box-sizing: border-box;
+                transition: all .6s @easing 0s;
+                transform: skewX(0deg) scaleY(0);
+            }
+            .item{
+                width: 100%;
+                height: auto;
+                position: relative;
+                z-index: 20;
+                p{
+                    color: @white;
+                    font-size: 1.125em;
+                    padding: 40px;
+                    a{
+                        color: @orange;
+                        font-size: 1.25em;
+                    }
+                }
+            }
+            &.reverse{
+                margin: 120px 0 0 50%;
+            }
+            &.active{
+                &:before{ transform: skewX(-15deg) scaleY(1); }
+            }
+        }
+        & > .btn{ margin: 120px auto 0; }
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  contact section end                       */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

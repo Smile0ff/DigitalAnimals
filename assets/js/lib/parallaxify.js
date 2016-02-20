@@ -54,6 +54,8 @@ class Parallaxify{
                 let diffY = Math.abs(bottomEdge - data.startY);
                 let diffRatio = diffY / data.speedRatio;
                 
+
+
                 posY = (data.bottomShiftY - diffRatio <= data.topShiftY) ? data.topShiftY : data.bottomShiftY - diffRatio;
 
             } else if(bottomEdge <= data.startY){

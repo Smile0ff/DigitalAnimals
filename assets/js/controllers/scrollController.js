@@ -1,6 +1,6 @@
 "use strict";
 
-let scrollPanels = $(".scroll-panel");
+let scrollPanels = $(".scroll-holder");
 
 class ScrollController{
 
@@ -15,7 +15,7 @@ class ScrollController{
 
         scrollPanels.each((index, el) => {
             el = $(el);
-            if(scrollY + el.innerHeight() > el.offset().top) el.addClass("active");
+            if(scrollY + window.innerHeight > el.offset().top) el.addClass("active");
         });
 
         return false;
