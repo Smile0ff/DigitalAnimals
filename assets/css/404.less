@@ -1,0 +1,86 @@
+@import "components/common.less";
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  layout start                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#page{
+    height: 100%;
+    position: relative;
+}
+#content{ height: 100%; }
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  layout end                                */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  cross lines start                         */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#cross-lines{
+    & > .line{ transform: translateY(0%); }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  cross lines end                           */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  not found start                           */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.not-found-holder{
+    height: 100%;
+    position: relative;
+    background: url("@{images}parallax-logo.png") no-repeat 20px 20px;
+    background-size: 120px auto;
+    overflow: hidden;
+    & > span{
+        display: block;
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        font-size: 40vw;
+        text-align: right;
+        color: lighten(@black, 80%);
+        transform: translateY(-50%);
+        backface-visibility: hidden;
+    }
+    .inner{
+        max-width: 100%;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        z-index: 20;
+        transform: translateY(-50%);
+        overflow: hidden;
+        h1{
+            color: @black;
+            position: relative;
+            &:before{
+                display: inline-block;
+                vertical-align: middle;
+                width: 120px;
+                height: 2px;
+                margin-left: 20px;
+                background: @black;
+                content: "";
+                overflow: hidden;
+            }
+        }
+        p{
+            max-width: 50%;
+            padding: 20px 20px 0;
+        }
+        .btn{
+            margin: 40px 0 0 20px;
+            .substrate{ background: @orange; }
+            a{
+                border: 2px solid @orange;
+                color: @orange;
+            }
+            &:hover{
+                a{ color: @white; }
+            }
+        }
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  not found end                             */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

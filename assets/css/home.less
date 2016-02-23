@@ -614,3 +614,322 @@
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  contact section end                       */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive start                            */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+@media only screen and @notebook{
+    
+    #scroll-down{
+        height: 100px;
+        .line-holder{ height: 60px; }
+    }
+
+    .project-sequence-holder{
+        & > .inner{
+            .project-ready{
+                font-size: 2em;
+                &:before{
+                    width: 80px;
+                }
+            }
+        } 
+    }
+    
+    .price-holder > .inner .item-holder .item p span{ font-size: 1.125em; }
+    .contact-holder >.inner .item-holder .item p a{ font-size: 1.125em; }
+
+}
+
+@media only screen and @netbook{
+    
+    .price-holder{
+        & > .inner{
+            .item-holder{
+                width: 60%;
+                &.reverse{ margin: 120px 0 0 30%; }
+            }
+        }
+    }
+    
+    .contact-holder{
+        & > .inner{
+            .item-holder{
+                width: 60%;
+                &.reverse{ margin: 120px 0 0 30%; }
+            }
+        }
+    }
+
+}
+
+@media only screen and @tablet{
+
+    #hero-background-holder{
+        .part{
+            width: 33.33333333333333%;
+            &:nth-child(1){ left: 0%; }
+            &:nth-child(2){ left: 33.33333333333333%; }
+            &:nth-child(3){ left: 66.66666666666667%; }
+            &:nth-child(4),
+            &:nth-child(5){
+                display: none;
+            }
+        }
+    }
+
+    .hero-holder{
+        & > .inner{
+            h1{
+                max-width: 400px;
+                margin: 0 auto;
+                line-height: 100px;
+                padding-right: 0.25em;
+                box-sizing: border-box;
+                span.space{ display: none; }
+            }
+        }
+    }
+
+    .benefits-holder{
+        & > .inner{
+            max-width: 80%;
+            position: relative;
+            margin: 0 auto;
+            padding: 120px 0 80px;
+        }
+    }
+    
+    .features-holder{
+        & > .inner{
+            padding: 120px 0 80px;
+            & > .item{
+                width: 80%;
+                margin: 80px auto;
+                & > figure{
+                    &:before{
+                        display: none;
+                    }
+                }
+                .info-holder{
+                    top: auto;
+                    left: 0%;
+                    bottom: 0;  
+                }
+                &.reverse{
+                    margin: 80px auto;
+                    & > figure:before{ display: none; }
+                    .info-holder{
+                        left: 0;
+                        &:before{ left: 20px; }
+                    }
+                }
+            }
+        }
+    }
+
+    .project-sequence-holder{
+        & > .inner{
+            max-width: 80%;
+            padding: 120px 0 80px;   
+        }
+        & > .parallax-holder.parallax-icon.icon-smile{ display: none; }
+    }
+
+    .price-holder{
+        & > .inner{
+            max-width: 90%;
+            padding: 120px 0 80px;
+            .item-holder{
+                width: 80%;
+                margin: 120px auto;
+                &.reverse{
+                    margin: 120px auto;
+                }
+            }
+        }
+    }
+
+    .contact-holder{
+        & > .inner{
+            max-width: 80%;
+            padding: 120px 0 80px;
+            .item-holder{
+                display: block;
+                width: 100%;
+                margin: 120px auto;
+                &.reverse{
+                    margin: 120px auto;
+                }
+            }
+        }
+    }
+
+}
+
+@media only screen and @mobile{
+
+    .parallax-holder{
+        &.parallax-letter{
+            display: none;
+        }
+        &.parallax-icon{
+            width: 60px;
+            height: 60px;
+            right: -10px;
+            font-size: 2em;
+            &:before{
+                line-height: 60px;
+            }
+        }
+    }
+    
+    .hero-holder{
+        & > .inner{
+            h1{
+                max-width: 300px;
+                line-height: 60px;
+            }
+            .lower-title{
+                margin-top: 10px;
+            }
+            .btn{
+                margin: 40px auto 0;
+            }
+        }
+    }
+    
+    .benefits-holder{
+        & > .inner{
+            max-width: 90%;
+            padding: 80px 0;
+            .benefits-item{
+                margin-top: 80px;
+                .benefit-bg{
+                    transform: skewX(0deg) scaleY(0);
+                }
+                & > .item{
+                    position: relative;
+                    z-index: 20;
+                    h3, p{
+                        opacity: 0;
+                        transition: all .6s @easing 1.2s;
+                    }
+                }
+                &.active{
+                    .benefit-bg{ transform: skewX(0deg) scaleY(1); }
+                }
+            }
+        }
+    }            
+
+    .features-holder{
+        & > .inner{
+            padding: 80px 0;
+            & > .item{
+                width: 100%;
+                margin: 80px auto 0;
+                .info-holder{
+                    & > .info-bg{
+                        width: 90%;
+                        left: 5%;
+                        transform: skewX(0deg);
+                    }
+                    &:before{
+                        width: 90%;
+                        transform: skewX(0deg);
+                    }
+                }
+                &.reverse{
+                    margin: 80px auto 0;
+                    .info-holder{
+                        & > .info-bg{ left: 0; }
+                    }
+                }
+            }
+        }
+    }
+    
+    .project-sequence-holder{
+        & > .inner{
+            max-width: 90%;
+            padding: 80px 0;
+            & > .item{
+                margin-top: 80px;
+                &:before,
+                &:after{
+                    transform: skewX(0deg) scaleY(0);
+                }
+                &.active{
+                    &:before,
+                    &:after{
+                        transform: skewX(0deg) scaleY(1);
+                    }
+                }
+            }
+        }
+    }
+
+    .price-holder{
+        & > .inner{
+            max-width: 90%;
+            padding: 80px 0;
+            .inner-headline:before{ margin-left: 0; }
+            .item-holder{
+                width: 100%;
+                margin: 80px auto 0;
+                &:before,
+                &:after{
+                    transform: skewX(0deg) scaleY(0);
+                }
+                .item{
+                    p{
+                        span{
+                            font-size: 1.125em;
+                        }
+                    }
+                }
+                &.reverse{
+                    margin: 80px auto 0;
+                    &:after{ left: -20px; }
+                }
+                &.active{
+                    &:before,
+                    &:after{
+                        transform: skewX(0deg) scaleY(1);
+                    }
+                }
+            }
+        }
+    }
+
+    .contact-holder{
+        & > .inner{
+            max-width: 90%;
+            margin: 0 auto;
+            padding: 80px 0;
+            h2.inner-headline{
+                padding-left: 0;
+                margin-bottom: 160px;
+                &:before{ margin-left: 0; }
+            }
+            .item-holder{
+                width: 100%;
+                margin: 80px auto 0;
+                &:first-child{ margin-top: 120px; }
+                .item{
+                    p{ font-size: 1em; }
+                }
+                &.reverse{ margin: 80px auto 0; }
+                &.active{
+                    &:before{ transform: skewX(0deg) scaleY(1); }
+                }
+            }
+            & > .btn{ margin: 80px auto 0; }
+        }
+    }
+
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive end                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

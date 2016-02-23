@@ -113,19 +113,19 @@ body{
         overflow: hidden;
         &:nth-child(1){
             margin-left: -30px;
-            animation: loader 3s @easing 0s infinite;
+            animation: loader 3s @easing 0s 5;
         }
         &:nth-child(2){
             margin-left: -10px;
-            animation: loader 3s @easing .1s infinite;
+            animation: loader 3s @easing .1s 5;
         }
         &:nth-child(3){
             margin-left: 10px;
-            animation: loader 3s @easing .2s infinite;
+            animation: loader 3s @easing .2s 5;
         }
         &:nth-child(4){
             margin-left: 30px;
-            animation: loader 3s @easing .3s infinite;
+            animation: loader 3s @easing .3s 5;
         }
     }
 }
@@ -501,4 +501,87 @@ body{
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  footer end                                */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive start                            */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+@media only screen and @notebook{
+    
+    h1{
+        font-size: 5.5em;
+    }
+    h2{
+        font-size: 1.5em;
+        font-weight: 500;
+    }
+    h3{
+        font-size: 1.125em;
+        font-weight: 500;
+    }
+
+    .inner-headline{
+        font-size: 2em;
+        &:before{ width: 80px; }
+    }
+
+}
+
+@media only screen and @netbook{
+    
+    h1{ font-size: 5em; }
+}
+
+@media only screen and @tablet{
+    
+    #cross-lines{
+        .line{
+            &:nth-child(1){ left: 33.33333333333333%; }
+            &:nth-child(2){ left: 66.66666666666667%; }
+            &:nth-child(3),
+            &:nth-child(4){
+                display: none;
+            }
+        }
+    }
+    
+    .background-parts-holder{
+        .bg-part{
+            width: 33.33333333333333%;
+            &:nth-child(1){ left: 0%; }
+            &:nth-child(2){ left: 33.33333333333333%; }
+            &:nth-child(3){ left: 66.66666666666667%; }
+            &:nth-child(4),
+            &:nth-child(5){
+                display: none;
+            }
+        }
+    }
+
+}
+
+@media only screen and @mobile{
+    
+    h1{ font-size: 4em; }
+    h2{ font-size: 1.25em; }
+    h3{ font-size: 1.125em; }
+
+    .inner-headline{
+        font-size: 1.5em;
+        &:before{ width: 40px; }
+    }
+    
+    #header{
+        .logo{
+            width: 40px;
+            height: 65px;
+            margin: 40px auto 0;
+        }
+    }
+    
+    #scroll-down{ bottom: 40px; }
+
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive end                              */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
