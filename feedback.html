@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Digital Animals</title>
+    <meta charset="UTF-8">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="address=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="">
+    <meta http-equiv="cleartype" content="on">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="Description" content="Описание необходимых мета-тегов." />
+    <!--meta name="msapplication-TileImage" content="assets/images/favicons/ms/144x144.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <link rel="apple-touch-icon" href="assets/images/favicons/apple/57x57.png">
+    <link rel="apple-touch-icon" href="assets/images/favicons/apple/60x60.png">
+    <link rel="apple-touch-icon" href="assets/images/favicons/apple/72x72.png">
+    <link rel="apple-touch-icon" href="assets/images/favicons/apple/76x76.png">
+    <link rel="apple-touch-icon" href="assets/images/favicons/apple/76x76.png">
+    <link rel="apple-touch-icon" href="assets/images/favicons/apple/114x114.png">
+    <link rel="apple-touch-icon" href="assets/images/favicons/apple/120x120.png">
+    <link rel="apple-touch-icon" href="assets/images/favicons/apple/144x144.png">
+    <link rel="apple-touch-icon" href="assets/images/favicons/apple/152x152.png">
+    <link rel="apple-touch-icon" href="assets/images/favicons/apple/180x180.png">
+    <link rel="icon" type="image/png" href="assets/images/favicons/16x16.png">
+    <link rel="icon" type="image/png" href="assets/images/favicons/32x32.png">
+    <link rel="icon" type="image/png" href="assets/images/favicons/96x96.png">
+    <link rel="icon" type="image/png" href="assets/images/favicons/160x160.png">
+    <link rel="icon" type="image/png" href="assets/images/favicons/192x192.png"-->
+    <link rel="stylesheet" href="build/css/feedback.bundle.min.css">
+</head>
+<body>
+    <div id="page">
+        <div id="preloader">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </div>
+        <div id="cross-lines">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </div>
+        <div id="loader">
+            <span></span>
+            <span></span>
+        </div>
+        <main id="content">
+            <section class="outer feedback-holder">
+                <a href="#" class="back-button">Вернуться назад</a>
+                <div class="background-parts-holder">
+                    <div class="bg-part"></div>
+                    <div class="bg-part"></div>
+                    <div class="bg-part"></div>
+                    <div class="bg-part"></div>
+                    <div class="bg-part"></div>
+                </div>
+                <div class="inner">
+                    <h2 class="inner-headline">Напишите нам</h2>
+                    <form action="php/feedback.php" method="POST" id="feedback-form">
+                        <div class="field-holder">
+                            <label for="feedback-name">Имя</label>
+                            <input type="text" name="feedback[name]" value="" placeholder="Введите имя" id="feedback-name" data-rule-required="true" data-msg-required="Мы все еще не знаем как к вам обращаться">
+                        </div>
+                        <div class="field-holder">
+                            <label for="feedback-email">E-mail</label>
+                            <input type="email" name="feedback[email]" value="" placeholder="Введите почтовый адрес" id="feedback-email" data-rule-required="true" data-msg-required="Мы все еще не знаем куда вам написать" data-rule-email="true" data-msg-email="Странный адрес, что-то с ним не так">
+                        </div>
+                        <div class="field-holder">
+                            <label for="feedback-phone">Телефон</label>
+                            <input type="tel" name="feedback[phone]" value="" placeholder="Введите номер телефона" id="feedback-phone" data-rule-required="true" data-msg-required="Мы все еще не знаем как к вам дозвониться" data-mask="+38(099) 999-9999">
+                        </div>
+                        <div class="field-holder">
+                            <textarea name="feedback[message]" id="feedback-message" placeholder="Введите сообщение" data-rule-required="true" data-msg-required="Мы не знаем что вам ответить на это"></textarea>
+                        </div>
+                        <button type="submit" class="btn">
+                            <span class="substrate"></span>
+                            <span class="title">Отправить</span>
+                        </button>
+                    </form>
+                </div>
+                <div id="response-holder"></div>
+            </section>
+        </main>
+    </div>
+    <script src="jspm_packages/system.js"></script>
+    <script src="jspm.config.js"></script>
+    <script>
+        var body = document.querySelector("body");
+
+        window.onload = function(){
+            window.setTimeout(function(){ body.classList.add("__loaded"); }, 2000);
+        };
+
+        System.import("assets/js/app/feedback");
+    </script>
+</body>
+</html>

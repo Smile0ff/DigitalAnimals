@@ -10,7 +10,7 @@ var gulp = require("gulp"),
 
 gulp.task("js", function(){
 
-    var fileList = glob.sync(cfg.js + "app.js"),
+    var fileList = glob.sync(cfg.js + "/app/*.js"),
         fileName, bundle;
 
     fileList.map(function(entry){

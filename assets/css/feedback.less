@@ -1,0 +1,90 @@
+@import "components/common.less";
+@import "components/forms.less";
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  layout start                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#page,
+#content{
+    height: 100%;
+    min-height: 100%;
+}
+#page{ position: relative; }
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  layout end                                */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  feedback start                            */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.feedback-holder{
+    position: relative;
+    & > .back-button{
+        display: inline-block;
+        padding: 20px 20px 20px 100px;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 20;
+        color: @white;
+        overflow: hidden;
+        &:before{
+            display: block;
+            width: 80px;
+            height: 1px;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            content: "";
+            background: @white;
+            transition: all .6s @easing 0s;
+            transform: translateX(-100%);
+        }
+        &:hover{
+            &:before{ transform: translateX(0%); }
+        }
+    }
+    .inner{
+        max-width: 60%;
+        margin: 0 auto;
+        padding: 80px 0;
+        z-index: 20;
+        position: relative;
+        & > form{
+            margin-top: 60px;
+            padding: 0 20px;
+            box-sizing: border-box;
+            .field-holder{
+                margin-top: 20px;
+                overflow: hidden;
+            }
+            button[type="submit"]{
+                margin: 40px auto 0;
+                .substrate{
+                    background: @orange;
+                }
+                .title{
+                    border: 2px solid @orange;
+                    color: @orange;
+                }
+                &:hover{
+                    .title{ color: @white; }
+                }
+            }
+        }
+    }
+}
+
+.__loaded .feedback-holder{
+    .background-parts-holder{
+        .bg-part{
+            &:nth-child(1){ transform: translateY(-60%); }
+            &:nth-child(2){ transform: translateY(0%); }
+            &:nth-child(3){ transform: translateY(-40%); }
+            &:nth-child(4){ transform: translateY(-20%); }
+            &:nth-child(5){ transform: translateY(-60%); }
+        }
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  feedback end                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

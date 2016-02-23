@@ -2,7 +2,7 @@
 
 let scrollPanels = $(".scroll-holder");
 
-class ScrollController{
+class Scrollify{
 
     constructor(){
         this._events();
@@ -22,4 +22,4 @@ class ScrollController{
     }
 }
 
-export default ScrollController;
+export default Scrollify;
