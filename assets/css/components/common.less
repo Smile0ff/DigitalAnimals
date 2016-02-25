@@ -61,28 +61,6 @@ body{
     overflow: hidden;
     &.__loaded{ overflow: visible; }
 }
-
-.inner-headline{
-    font-size: 3em;
-    text-align: left;
-    color: @white;
-    overflow: hidden;
-    &:before{
-        display: inline-block;
-        vertical-align: middle;
-        width: 120px;
-        height: 2px;
-        margin: 0 20px;
-        content: "";
-        position: relative;
-        background: @white;
-    }
-    &.black{
-        color: @black;
-        &:before{ background: @black; }
-    }
-}
-
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  layout end                                */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -520,9 +498,9 @@ body{
         font-weight: 500;
     }
 
-    .inner-headline{
-        font-size: 2em;
-        &:before{ width: 80px; }
+    #scroll-down{
+        height: 100px;
+        .line-holder{ height: 60px; }
     }
 
 }
@@ -565,13 +543,9 @@ body{
     h1{ font-size: 4em; }
     h2{ font-size: 1.25em; }
     h3{ font-size: 1.125em; }
-
-    .inner-headline{
-        font-size: 1.5em;
-        &:before{ width: 40px; }
-    }
     
     #header{
+        display: none;
         .logo{
             width: 40px;
             height: 65px;
@@ -579,7 +553,12 @@ body{
         }
     }
     
-    #scroll-down{ bottom: 40px; }
+    #scroll-down{
+        height: 20px;
+        bottom: 40px;
+        .line-holder{ display: none; }
+        .text{ margin: 0; }
+    }
 
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

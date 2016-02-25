@@ -82,6 +82,35 @@
     50% { transform: translateX(0%) rotate(0deg); }
     100% { transform: translateX(0%) rotate(-35deg); }
 }
+
+.outer{
+    & > .inner{
+        position: relative;
+        padding: 160px 0 80px;
+        z-index: 20;
+        margin: 0 auto;
+        box-sizing: border-box;
+        & > h2{
+            font-size: 3em;
+            text-align: left;
+            color: @white;
+            overflow: hidden;
+            &:before{
+                display: inline-block;
+                vertical-align: middle;
+                width: 120px;
+                height: 2px;
+                margin: 0 20px;
+                content: "";
+                background: @white;
+            }
+            &.black{
+                color: @black;
+                &:before{ background: @black; }
+            }
+        }
+    }
+}
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  layout end                                */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -132,6 +161,7 @@
         position: absolute;
         top: 50%;
         left: 0;
+        padding: 0;
         transform: translateY(-50%);
         z-index: 20;
         backface-visibility: hidden;
@@ -147,37 +177,45 @@
             transition: all .6s @easing 3.6s;
         }
         h1{
-            letter-spacing: -.25em;
             span{
-                display: inline-block;
-                vertical-align: middle;
                 font-family: inherit;
                 font-size: inherit;
                 color: inherit;
-                position: relative;
-                opacity: 0;
-                transform: translateY(-100%);
-                &.space{ margin: 0 5px; }
-                &:nth-child(1){ transition: all .6s @easing 1.6s; }
-                &:nth-child(2){ transition: all .6s @easing 1.7s; }
-                &:nth-child(3){ transition: all .6s @easing 1.8s; }
-                &:nth-child(4){ transition: all .6s @easing 1.9s; }
-                &:nth-child(5){ transition: all .6s @easing 2s; }
-                &:nth-child(6){ transition: all .6s @easing 2.1s; }
-                &:nth-child(7){ transition: all .6s @easing 2.2s; }
-                &:nth-child(8){ transition: all .6s @easing 2.3s; }
-                &:nth-child(9){ transition: all .6s @easing 2.4s; }
-                &:nth-child(10){ transition: all .6s @easing 2.5s; }
-                &:nth-child(11){ transition: all .6s @easing 2.6s; }
-                &:nth-child(12){ transition: all .6s @easing 2.7s; }
-                &:nth-child(13){ transition: all .6s @easing 2.8s; }
-                &:nth-child(14){ transition: all .6s @easing 2.9s; }
-                &:nth-child(15){ transition: all .6s @easing 3.0s; }
+            }
+            & > .lane{
+                display: inline-block;
+                vertical-align: middle;
+                span{
+                    display: block;
+                    float: left;
+                    position: relative;
+                    opacity: 0;
+                    transform: translateY(-100%);
+                    &:nth-child(1){ transition: all .6s @easing 1.6s; }
+                    &:nth-child(2){ transition: all .6s @easing 1.7s; }
+                    &:nth-child(3){ transition: all .6s @easing 1.8s; }
+                    &:nth-child(4){ transition: all .6s @easing 1.9s; }
+                    &:nth-child(5){ transition: all .6s @easing 2s; }
+                    &:nth-child(6){ transition: all .6s @easing 2.1s; }
+                    &:nth-child(7){ transition: all .6s @easing 2.2s; }
+                }
+                &:last-child{
+                    span{
+                        &:nth-child(1){ transition: all .6s @easing 2.3s; }
+                        &:nth-child(2){ transition: all .6s @easing 2.4s; }
+                        &:nth-child(3){ transition: all .6s @easing 2.5s; }
+                        &:nth-child(4){ transition: all .6s @easing 2.6s; }
+                        &:nth-child(5){ transition: all .6s @easing 2.7s; }
+                        &:nth-child(6){ transition: all .6s @easing 2.8s; }
+                        &:nth-child(7){ transition: all .6s @easing 2.9s; }
+                    }
+                }
             }
         }
         .upper-title{
             display: block;
             font-size: 1.125em;
+            margin-bottom: 40px;
         }
         .btn{
             opacity: 0;
@@ -191,9 +229,11 @@
 .__loaded .hero-holder{
     & > .inner{
         h1{
-            span{
-                opacity: 1;
-                transform: translateY(0%);
+            & > .lane{
+                span{
+                    opacity: 1;
+                    transform: translateY(0%);
+                }
             }
         }
         .upper-title,
@@ -216,12 +256,6 @@
 .benefits-holder{
     & > .inner{
         max-width: 60%;
-        position: relative;
-        margin: 0px auto;
-        padding: 160px 20px 80px;
-        box-sizing: border-box;
-        z-index: 20;
-        h2.inner-headline:before{ margin: 0 20px 0 0; }
         .benefits-item{
             width: 100%;
             height: auto;
@@ -274,9 +308,6 @@
 .features-holder{
     & > .inner{
         max-width: 100%;
-        padding: 160px 0 80px;
-        position: relative;
-        z-index: 20;
         & > .item{
             width: 40%;
             height: auto;
@@ -381,14 +412,9 @@
     }
     & > .inner{
         max-width: 60%;
-        margin: 0 auto;
-        position: relative;
-        z-index: 20;
-        padding: 160px 20px 80px;
-        box-sizing: border-box;
         & > p{
             position: relative;
-            padding: 20px 0 0;
+            padding: 20px 20px 0;
             transition: all .6s @easing 0s;
             opacity: 0;
             transform: translateY(100%);
@@ -480,9 +506,6 @@
     }
     & > .inner{
         max-width: 100%;
-        padding: 160px 0 80px;
-        position: relative;
-        z-index: 20;
         .item-holder{
             width: 40%;
             height: auto;
@@ -558,11 +581,7 @@
     }
     & > .inner{
         max-width: 100%;
-        position: relative;
-        z-index: 20;
-        margin: 0 auto;
-        padding: 160px 0 80px;
-        h2.inner-headline{
+        & > h2{
             color: @orange;
             padding-left: 20%;
             &:before{ background: @orange; }
@@ -620,18 +639,20 @@
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 @media only screen and @notebook{
     
-    #scroll-down{
-        height: 100px;
-        .line-holder{ height: 60px; }
+    .outer{
+        & > .inner{
+            & > h2{
+                font-size: 2em;
+                &:before{ width: 80px; }
+            }
+        }
     }
 
     .project-sequence-holder{
         & > .inner{
             .project-ready{
                 font-size: 2em;
-                &:before{
-                    width: 80px;
-                }
+                &:before{ width: 80px; }
             }
         } 
     }
@@ -665,6 +686,13 @@
 
 @media only screen and @tablet{
 
+    .outer{
+        & > .inner{
+            max-width: 80%;
+            padding: 120px 0 80px;
+        }
+    }
+
     #hero-background-holder{
         .part{
             width: 33.33333333333333%;
@@ -680,32 +708,16 @@
 
     .hero-holder{
         & > .inner{
-            h1{
-                max-width: 400px;
-                margin: 0 auto;
-                line-height: 100px;
-                padding-right: 0.25em;
-                box-sizing: border-box;
-                span.space{ display: none; }
-            }
-        }
-    }
-
-    .benefits-holder{
-        & > .inner{
-            max-width: 80%;
-            position: relative;
-            margin: 0 auto;
-            padding: 120px 0 80px;
+            max-width: 100%;
+            padding: 0;
         }
     }
     
     .features-holder{
         & > .inner{
-            padding: 120px 0 80px;
             & > .item{
-                width: 80%;
-                margin: 80px auto;
+                width: 100%;
+                margin: 120px auto;
                 & > figure{
                     &:before{
                         display: none;
@@ -729,19 +741,13 @@
     }
 
     .project-sequence-holder{
-        & > .inner{
-            max-width: 80%;
-            padding: 120px 0 80px;   
-        }
         & > .parallax-holder.parallax-icon.icon-smile{ display: none; }
     }
 
     .price-holder{
         & > .inner{
-            max-width: 90%;
-            padding: 120px 0 80px;
             .item-holder{
-                width: 80%;
+                width: 100%;
                 margin: 120px auto;
                 &.reverse{
                     margin: 120px auto;
@@ -752,8 +758,7 @@
 
     .contact-holder{
         & > .inner{
-            max-width: 80%;
-            padding: 120px 0 80px;
+            & > h2{ padding-left: 0; }
             .item-holder{
                 display: block;
                 width: 100%;
@@ -769,8 +774,22 @@
 
 @media only screen and @mobile{
 
+    .outer{
+        & > .inner{
+            max-width: 100%;
+            padding: 80px 0;
+            & > h2{
+                font-size: 1.5em;
+                &:before{ width: 40px; }
+            }
+        }
+    }
+
+    #hero-background-holder{ display: none; }
+    
     .parallax-holder{
-        &.parallax-letter{
+        &.parallax-letter,
+        &.parallax-logo{
             display: none;
         }
         &.parallax-icon{
@@ -785,32 +804,35 @@
     }
     
     .hero-holder{
+        background: url("@{images}/industrial.jpg") no-repeat 0 0;
+        background-size: cover;
         & > .inner{
-            h1{
-                max-width: 300px;
-                line-height: 60px;
-            }
-            .lower-title{
-                margin-top: 10px;
-            }
-            .btn{
-                margin: 40px auto 0;
-            }
+            .upper-title{ font-size: 1em; }
+            .lower-title{ margin-top: 10px; }
+            .btn{ margin: 40px auto 0; }
         }
     }
     
     .benefits-holder{
         & > .inner{
-            max-width: 90%;
-            padding: 80px 0;
             .benefits-item{
-                margin-top: 80px;
-                .benefit-bg{
-                    transform: skewX(0deg) scaleY(0);
+                width: calc(~"100% - 40px");
+                margin: 80px auto 0px;
+                background: @white;
+                border: 2px solid @orange;
+                box-sizing: border-box;
+                *[class^="benefit-bg"]{
+                    display: none;
                 }
                 & > .item{
                     position: relative;
                     z-index: 20;
+                    h3{
+                        padding: 20px 20px 0;
+                    }
+                    p{
+                        padding: 20px;
+                    }
                     h3, p{
                         opacity: 0;
                         transition: all .6s @easing 1.2s;
@@ -825,25 +847,21 @@
 
     .features-holder{
         & > .inner{
-            padding: 80px 0;
             & > .item{
-                width: 100%;
+                width: calc(~"100% - 40px");
                 margin: 80px auto 0;
                 .info-holder{
-                    & > .info-bg{
-                        width: 90%;
-                        left: 5%;
-                        transform: skewX(0deg);
-                    }
+                    padding: 20px;
+                    & > .info-bg,
                     &:before{
-                        width: 90%;
-                        transform: skewX(0deg);
+                        display: none;
                     }
-                }
-                &.reverse{
-                    margin: 80px auto 0;
-                    .info-holder{
-                        & > .info-bg{ left: 0; }
+                    .info{
+                        background: @white;
+                        border: 2px solid @black;
+                        box-sizing: border-box;
+                        h3{ padding: 20px 20px 0; }
+                        p{ padding: 20px; }
                     }
                 }
             }
@@ -852,38 +870,40 @@
     
     .project-sequence-holder{
         & > .inner{
-            max-width: 90%;
-            padding: 80px 0;
             & > .item{
-                margin-top: 80px;
+                width: calc(~"100% - 40px");
+                margin: 80px auto 0;
+                background: @white;
+                border: 2px solid @black;
+                box-sizing: border-box;
                 &:before,
                 &:after{
-                    transform: skewX(0deg) scaleY(0);
+                   display: none;
                 }
-                &.active{
-                    &:before,
-                    &:after{
-                        transform: skewX(0deg) scaleY(1);
-                    }
-                }
+                h3{ padding: 40px 20px; }
+            }
+            & > .project-ready{
+                padding: 80px 20px 0;
+                &:before{ width: 40px; }
             }
         }
     }
 
     .price-holder{
         & > .inner{
-            max-width: 90%;
-            padding: 80px 0;
-            .inner-headline:before{ margin-left: 0; }
             .item-holder{
-                width: 100%;
+                width: calc(~"100% - 40px");
                 margin: 80px auto 0;
                 &:before,
                 &:after{
-                    transform: skewX(0deg) scaleY(0);
+                    display: none;
                 }
                 .item{
+                    background: @black;
+                    border: 2px solid @orange;
+                    box-sizing: border-box;
                     p{
+                        padding: 40px;
                         span{
                             font-size: 1.125em;
                         }
@@ -891,13 +911,6 @@
                 }
                 &.reverse{
                     margin: 80px auto 0;
-                    &:after{ left: -20px; }
-                }
-                &.active{
-                    &:before,
-                    &:after{
-                        transform: skewX(0deg) scaleY(1);
-                    }
                 }
             }
         }
@@ -905,20 +918,19 @@
 
     .contact-holder{
         & > .inner{
-            max-width: 90%;
-            margin: 0 auto;
-            padding: 80px 0;
-            h2.inner-headline{
-                padding-left: 0;
-                margin-bottom: 160px;
-                &:before{ margin-left: 0; }
-            }
             .item-holder{
-                width: 100%;
+                width: calc(~"100% - 40px");
                 margin: 80px auto 0;
+                &:before{ display: none; }
                 &:first-child{ margin-top: 120px; }
                 .item{
-                    p{ font-size: 1em; }
+                    background: @white;
+                    border: 2px solid @orange;
+                    box-sizing: border-box;
+                    p{
+                        color: @black;
+                        font-size: 1em;
+                    }
                 }
                 &.reverse{ margin: 80px auto 0; }
                 &.active{
