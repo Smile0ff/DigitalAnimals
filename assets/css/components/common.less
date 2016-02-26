@@ -161,6 +161,59 @@ body{
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  landscape holder start                    */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#landscape-cap-holder{
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: @white;
+    & > .rotated-arrow{
+        display: block;
+        width: 60px;
+        height: 60px;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin: -30px 0 0 -30px;
+        background: transparent;
+        animation: rotatedArrow 3s @easing 0s infinite;
+        overflow: hidden;
+        &:before{
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform: rotate(90deg);
+            font-size: 2em;
+            color: @orange;
+            line-height: 60px;
+            text-align: center;
+        }
+    }
+    & > .title{
+        display: block;
+        width: 100%;
+        height: 60px;
+        position: absolute;
+        bottom: 40px;
+        left: 0;
+        line-height: 60px;
+        text-align: center;
+    }
+}
+@keyframes rotatedArrow{
+    0% { transform: rotate(-90deg) translateX(400%); }
+    100% { transform: rotate(-450deg) translateX(400%); }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  landscape holder end                      */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  scroll down start                         */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 #scroll-down{
@@ -543,13 +596,24 @@ body{
     h1{ font-size: 4em; }
     h2{ font-size: 1.25em; }
     h3{ font-size: 1.125em; }
-    
+
+    #preloader{
+        .line{
+            &:nth-child(1),
+            &:nth-child(2),
+            &:nth-child(3),
+            &:nth-child(4){
+                animation: loader 3s @easing 0s 5;
+            }
+        }
+    }
+
     #header{
-        display: none;
         .logo{
-            width: 40px;
-            height: 65px;
-            margin: 40px auto 0;
+            width: 30px;
+            height: auto;
+            margin: 20px auto 0;
+            transition: all .6s @easing 2.2s;
         }
     }
     
@@ -557,9 +621,25 @@ body{
         height: 20px;
         bottom: 40px;
         .line-holder{ display: none; }
-        .text{ margin: 0; }
+        .text{
+            margin: 0;
+            transition: all .6s @easing 1.9s;
+        }
     }
 
+}
+
+@media only screen and @landscape and @tablet{
+    
+    #page{ overflow: hidden; }
+
+    #header,
+    #content,
+    #preloader{
+        display: none;
+    }
+    
+    #landscape-cap-holder{ display: block; }
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  adaptive end                              */

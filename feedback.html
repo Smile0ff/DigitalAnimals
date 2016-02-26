@@ -52,6 +52,10 @@
             <span></span>
             <span></span>
         </div>
+        <div id="landscape-cap-holder">
+            <span class="rotated-arrow icon-arrow"></span>
+            <span class="title">Переверни меня назад</span>
+        </div>
         <main id="content">
             <section class="outer feedback-holder">
                 <a href="#" class="back-button">Вернуться назад</a>
@@ -63,7 +67,7 @@
                     <div class="bg-part"></div>
                 </div>
                 <div class="inner">
-                    <h2 class="inner-headline">Напишите нам</h2>
+                    <h2>Напишите нам</h2>
                     <form action="php/feedback.php" method="POST" id="feedback-form">
                         <div class="field-holder">
                             <label for="feedback-name">Имя</label>
@@ -90,16 +94,6 @@
             </section>
         </main>
     </div>
-    <script src="jspm_packages/system.js"></script>
-    <script src="jspm.config.js"></script>
-    <script>
-        var body = document.querySelector("body");
-
-        window.onload = function(){
-            window.setTimeout(function(){ body.classList.add("__loaded"); }, 2000);
-        };
-
-        System.import("assets/js/app/feedback");
-    </script>
+    <script src="build/js/feedback.bundle.min.js"></script>
 </body>
 </html>

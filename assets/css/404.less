@@ -84,3 +84,29 @@
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  not found end                             */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive start                            */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+@media only screen and @mobile{
+
+    .not-found-holder{
+        background: url("@{images}parallax-logo.png") no-repeat 50% 20px;
+        background-size: 80px auto;
+        & > span{
+            font-size: 50vw;
+            text-align: center;
+        }
+        .inner{
+            h1{
+                font-size: 3em;
+                &:before{ width: 40px; }
+            }
+            p{ max-width: 100%; }
+        }
+    }
+
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive end                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

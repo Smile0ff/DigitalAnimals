@@ -49,6 +49,25 @@
         padding: 80px 0;
         z-index: 20;
         position: relative;
+        & > h2{
+            font-size: 3em;
+            text-align: left;
+            color: @white;
+            overflow: hidden;
+            &:before{
+                display: inline-block;
+                vertical-align: middle;
+                width: 120px;
+                height: 2px;
+                margin: 0 20px;
+                content: "";
+                background: @white;
+            }
+            &.black{
+                color: @black;
+                &:before{ background: @black; }
+            }
+        }
         & > form{
             margin-top: 60px;
             padding: 0 20px;
@@ -87,4 +106,47 @@
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  feedback end                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive start                            */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+@media only screen and @notebook{
+    
+    .feedback-holder .inner > h2{
+        font-size: 2em;
+        &:before{
+            width: 80px;
+        }
+    }
+
+}
+
+@media only screen and @tablet{
+
+    .feedback-holder{
+        .inner{
+            max-width: 100%;
+        }
+    }
+
+}
+
+@media only screen and @mobile{
+
+    .feedback-holder{
+        .inner{
+            padding-top: 120px;
+            & > h2{
+                font-size: 1.5em;
+                &:before{
+                    width: 40px;
+                }
+            }
+        }
+    }
+
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive end                              */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

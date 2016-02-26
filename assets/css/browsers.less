@@ -1,0 +1,104 @@
+@import "components/common.less";
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  layout start                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+body{ overflow: visible; }
+#page,
+#content{
+    height: 100%;
+}
+
+#cross-lines{
+    & > .line{ transform: translateY(0%); }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  layout end                                */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  browsers start                            */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.browsers-holder{
+    & > .inner{
+        max-width: 100%;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        z-index: 20;
+        transform: translateY(-50%);
+        backface-visibility: hidden;
+        overflow: hidden;
+        & > span{
+            display: block;
+            text-align: center;
+            font-size: 1.5em;
+            color: @black;
+            margin-bottom: 80px;
+        }
+        h1{
+            color: @black;
+            text-align: center;
+        }
+        p{
+            text-align: center;
+        }
+        & > ul{
+            display: block;
+            margin-top: 40px;
+            text-align: center;
+            li{
+                display: inline-block;
+                vertical-align: top;
+                margin: 40px 40px 0;
+                .icon{
+                    display: block;
+                    width: 60px;
+                    height: 60px;
+                    margin: 0 auto;
+                    font-size: 3.75em;
+                    color: @orange;
+                    &:before{ vertical-align: top; }
+                }
+                & > a{
+                    display: block;
+                    text-align: center;
+                    margin-top: 20px;
+                    transition: all .6s @easing;
+                    &:hover{ color: @orange; }
+                }
+            }
+        }
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  browsers end                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive start                            */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+@media only screen and @mobile{
+
+    .browsers-holder{
+        & > .inner{
+            position: relative;
+            top: 0;
+            transform: translateY(0%);
+            padding: 80px 0;
+            & > span{
+                font-size: 1.25em;
+                margin-bottom: 20px;
+            }
+            & > ul{
+                li{
+                    width: 48%;
+                    margin: 40px 0px 0;
+                }
+            }
+        }
+    }
+
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive end                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

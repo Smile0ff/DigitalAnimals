@@ -785,8 +785,15 @@
         }
     }
 
-    #hero-background-holder{ display: none; }
-    
+    .features-holder,
+    .price-holder{
+        &.active{
+            & > .inner{
+                .sprtr:before{ animation: sprtrAnim 1.2s @easing 0s 1 forwards; }
+            }
+        }
+    }
+
     .parallax-holder{
         &.parallax-letter,
         &.parallax-logo{
@@ -795,21 +802,58 @@
         &.parallax-icon{
             width: 60px;
             height: 60px;
-            right: -10px;
+            right: -15px;
             font-size: 2em;
             &:before{
                 line-height: 60px;
             }
         }
     }
+
+    #hero-background-holder{ display: none; }
     
     .hero-holder{
         background: url("@{images}/industrial.jpg") no-repeat 0 0;
         background-size: cover;
         & > .inner{
-            .upper-title{ font-size: 1em; }
+            padding: 0;
+            .upper-title{
+                font-size: 1em;
+                margin-bottom: 20px;
+            }
             .lower-title{ margin-top: 10px; }
-            .btn{ margin: 40px auto 0; }
+            .upper-title,
+            .lower-title{
+                transition: all .6s @easing 2.2s;
+            }
+            h1{
+                & > .lane{
+                    span{
+                        &:nth-child(1){ transition: all .6s @easing .6s; }
+                        &:nth-child(2){ transition: all .6s @easing .7s; }
+                        &:nth-child(3){ transition: all .6s @easing .8s; }
+                        &:nth-child(4){ transition: all .6s @easing .9s; }
+                        &:nth-child(5){ transition: all .6s @easing 1s; }
+                        &:nth-child(6){ transition: all .6s @easing 1.1s; }
+                        &:nth-child(7){ transition: all .6s @easing 1.2s; }
+                    }
+                    &:last-child{
+                        span{
+                            &:nth-child(1){ transition: all .6s @easing 1.3s; }
+                            &:nth-child(2){ transition: all .6s @easing 1.4s; }
+                            &:nth-child(3){ transition: all .6s @easing 1.5s; }
+                            &:nth-child(4){ transition: all .6s @easing 1.6s; }
+                            &:nth-child(5){ transition: all .6s @easing 1.7s; }
+                            &:nth-child(6){ transition: all .6s @easing 1.8s; }
+                            &:nth-child(7){ transition: all .6s @easing 1.9s; }
+                        }
+                    }
+                }
+            }
+            .btn{
+                margin: 40px auto 0;
+                transition: all .6s @easing 1.9s;
+            }
         }
     }
     
@@ -828,14 +872,14 @@
                     position: relative;
                     z-index: 20;
                     h3{
-                        padding: 20px 20px 0;
+                        padding: 20px 40px 0 20px;
                     }
                     p{
                         padding: 20px;
                     }
                     h3, p{
                         opacity: 0;
-                        transition: all .6s @easing 1.2s;
+                        transition: all .6s @easing 0s;
                     }
                 }
                 &.active{
@@ -852,10 +896,9 @@
                 margin: 80px auto 0;
                 .info-holder{
                     padding: 20px;
+                    bottom: -100px;
                     & > .info-bg,
-                    &:before{
-                        display: none;
-                    }
+                    &:before{ display: none; }
                     .info{
                         background: @white;
                         border: 2px solid @black;
@@ -880,7 +923,10 @@
                 &:after{
                    display: none;
                 }
-                h3{ padding: 40px 20px; }
+                h3{
+                    padding: 40px 20px;
+                    transition: all .6s @easing 0s;
+                }
             }
             & > .project-ready{
                 padding: 80px 20px 0;
@@ -904,6 +950,7 @@
                     box-sizing: border-box;
                     p{
                         padding: 40px;
+                        transition: all .6s @easing 0s;
                         span{
                             font-size: 1.125em;
                         }

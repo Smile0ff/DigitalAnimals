@@ -122,3 +122,43 @@ button[type="submit"]{
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  forms end                                 */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive start                            */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+@media only screen and @mobile{
+
+    #response-holder{
+        width: 100%;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    input[type="email"],
+    input[type="search"],
+    input[type="password"]{
+        display: block;
+        width: 100%;
+        height: 60px;
+        float: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+        text-align: left;
+        text-indent: 20px;
+        line-height: 60px;
+        background: lighten(@black, 80%);
+        box-sizing: border-box;
+    }
+
+    label:not(.error){
+        display: none;
+    }
+    label.error{
+        padding: 10px 0px;
+    }
+
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive end                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
