@@ -3,6 +3,7 @@
 let form = $("#feedback-form");
 let loader = $("#loader");
 let responseHolder = $("#response-holder");
+let token = Cookies.get("csrftoken");
 
 let hasErrors = false;
 
@@ -15,7 +16,7 @@ class FeedbackController{
         form.on("submit", (e) => { this._handleForm(e) });
     }
     _handleForm(e){
-        if(!form.valid()) return;
+        if(!form.valid() && !token) return;
         e.preventDefault();
 
         loader.addClass("active");
@@ -25,6 +26,10 @@ class FeedbackController{
 
         fetch(formUrl, {
             method: "POST",
+            headers: {
+                "X-Requested-Wit": "XMLHttpRequest",
+                "HTTP_X_CSRFTOKEN": token
+            },
             body: formData
         })
         .then(this._checkStatus)
